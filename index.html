@@ -1,0 +1,120 @@
+<html>
+<head>
+<title>test</title>
+</head>
+<body>
+
+<div id="plane"></div>
+<div id="cloud1"></div>
+<div id="cloud2"></div>
+<div class = "cont">
+<div id="text"> ГОРИЗОНАТЛЬНЫЙ <br> ПАРАЛЛАКС</div>
+<div id="text2">Интересный эффект, который позволяет <br> создавать динамичные и привлекательные <br> интерфейсы</div> 
+
+
+<style>
+	
+	body {
+		overflow-x: hidden;
+		height: 200%;
+		background-image: url("bg.png");
+		background-size: 100%;
+	}
+	
+	#cloud1{
+		width: 400px;
+		height: 150px;
+		background-image: url("cloud1.png");
+		background-size: cover;
+		position: absolute;
+		left: 10%;
+		top: 40%;
+	}
+
+	#cloud2{
+		width: 600px;
+		height: 200px;
+		background-image: url("cloud2.png");
+		background-size: cover;
+		position: absolute;
+		left: 60%;
+		top: 20%;
+	}
+
+	#plane {
+		width: 200px;
+		height: 200px;
+		background-image: url("plane.png");
+		background-size: cover;
+		position: absolute;
+		left: 70%;
+		top: 600px;
+	}
+
+	#text {
+
+	font-family: 'Montserrat Alternates';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 5em;
+	line-height: 117px;
+	text-align: center;
+	color: #FFFFFF;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+	#text2 {
+
+
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 2em;
+line-height: 44px;
+text-align: center;
+
+color: #FFFFFF;
+	}
+.cont {
+	margin-top: 1200px;
+display: flex;
+align-items: center;
+flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+	
+</style>
+<script>
+	let plane = document.getElementById("plane");
+	let cloud = document.getElementById("cloud1");
+	let cloud2 = document.getElementById("cloud2");
+	let lastScroll = 0;
+	window.addEventListener('scroll', () => {
+		let scrollValue = window.scrollY;
+		let scrollDirection = scrollValue > lastScroll ? "up" : "down";
+		if (scrollDirection === "up") {
+			plane.style.transform = `translateX(${scrollValue * -0.8}px)`;
+			cloud.style.transform = `translateX(${scrollValue * 0.3}px)`;
+			cloud2.style.transform = `translateX(${scrollValue * -0.3}px)`;
+		}
+		else if (scrollDirection === "down") {
+			plane.style.transform = `translateX(${scrollValue * -0.6}px)`;
+			cloud.style.transform = `translateX(${scrollValue * 0.2}px)`;
+			cloud2.style.transform = `translateX(${scrollValue * -0.2}px)`;
+		}			
+		
+		lastScroll = scrollValue;
+		
+	})
+	
+</script>
+</body>
+</html>
